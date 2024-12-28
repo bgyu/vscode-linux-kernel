@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Linux Kernel",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "__KERNEL__",
+                "CONFIG_X86_64"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "compilerArgs": ["-m64"],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "linux-gcc-x64",
+            // To generate compile_commands.json, run:
+            // ./scripts/clang-tools/gen_compile_commands.py
+            "compileCommands": "${workspaceFolder}/compile_commands.json",
+            "browse": {
+                "path": [
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            }
+        }
+    ],
+    "version": 4
+}

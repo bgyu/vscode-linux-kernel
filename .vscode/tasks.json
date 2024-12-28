@@ -1,0 +1,22 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start VM",
+        "type": "shell",
+        // qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -s -S -append "nokaslr root=/dev/sda rw console=ttyS0" -drive file=filesystem.img,format=raw,if=ide -nographic
+        "command": "qemu-system-x86_64",
+        "args": [
+          "-kernel", "arch/x86_64/boot/bzImage",
+          "-s", "-S", 
+          "-append",
+           //"nokaslr root=/dev/sda rw console=ttyS0",
+           "nokaslr root=/dev/sda rw console=ttyS0 init=/init loglevel=8",
+          "-drive",
+          "file=filesystem.img,format=raw,if=ide",
+          //"-nographic",  
+          "-serial", "tcp::4444,server,nowait", "-display", "none", "-daemonize"          
+        ]
+      }
+    ]
+}
