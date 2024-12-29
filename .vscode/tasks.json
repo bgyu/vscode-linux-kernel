@@ -2,6 +2,37 @@
     "version": "2.0.0",
     "tasks": [
       {
+        "label": "Compile Linux Kernel",
+        "type": "shell",
+        "command": "${workspaceFolder}/compile_kernel.sh",
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "presentation": {
+            "reveal": "always",
+            "panel": "shared"
+        }
+      },
+      {
+        "label": "Clean Kernel Build",
+        "type": "shell",
+        "command": "make mrproper",
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        },
+        "presentation": {
+            "reveal": "always",
+            "panel": "shared"
+        },
+        "options": {
+            "cwd": "${workspaceFolder}" // Ensures the command runs in the kernel source directory
+        }
+      },
+      {
         "label": "Start VM",
         "type": "shell",
         // qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -s -S -append "nokaslr root=/dev/sda rw console=ttyS0" -drive file=filesystem.img,format=raw,if=ide -nographic
