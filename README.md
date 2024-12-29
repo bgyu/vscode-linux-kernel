@@ -81,3 +81,4 @@ qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -append "root=/dev/sda rw co
 * https://docs.kernel.org/dev-tools/gdb-kernel-debugging.html
 * https://github.com/bgyu/KB/blob/main/DebugLinuxKernel.md
 * https://www.youtube.com/watch?v=D4k1Q3aHpT8&t=13s
+* https://github.com/FlorentRevest/linux-kernel-vscode
