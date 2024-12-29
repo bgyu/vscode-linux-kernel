@@ -12,7 +12,8 @@
         },
         "presentation": {
             "reveal": "always",
-            "panel": "shared"
+            "panel": "shared",
+            "close": true
         }
       },
       {
@@ -26,7 +27,26 @@
         },
         "presentation": {
             "reveal": "always",
-            "panel": "shared"
+            "panel": "shared",
+            "close": true
+        },
+        "options": {
+            "cwd": "${workspaceFolder}" // Ensures the command runs in the kernel source directory
+        }
+      },
+      {
+        "label": "Create FileSystem",
+        "type": "shell",
+        "command": "${workspaceFolder}/create_fs.sh",
+        "problemMatcher": [],
+        "group": {
+            "kind": "build",
+            "isDefault": false
+        },
+        "presentation": {
+            "reveal": "always",
+            "panel": "shared",
+            "close": true
         },
         "options": {
             "cwd": "${workspaceFolder}" // Ensures the command runs in the kernel source directory
@@ -35,19 +55,38 @@
       {
         "label": "Start VM",
         "type": "shell",
-        // qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -s -S -append "nokaslr root=/dev/sda rw console=ttyS0" -drive file=filesystem.img,format=raw,if=ide -nographic
-        "command": "qemu-system-x86_64",
-        "args": [
-          "-kernel", "arch/x86_64/boot/bzImage",
-          "-s", "-S", 
-          "-append",
-           //"nokaslr root=/dev/sda rw console=ttyS0",
-           "nokaslr root=/dev/sda rw console=ttyS0 init=/init loglevel=8",
-          "-drive",
-          "file=filesystem.img,format=raw,if=ide",
-          //"-nographic",  
-          "-serial", "tcp::4444,server,nowait", "-display", "none", "-daemonize"          
-        ]
+        "dependsOn": ["Compile Linux Kernel", "Create FileSystem"],
+        "command": "./start_vm.sh",
+        "problemMatcher": [],
+        "options": {
+            "cwd": "${workspaceFolder}"
+        },
+        "presentation": {
+            "reveal": "always",
+            "panel": "shared",
+            "close": false
+        }
       }
+      // {
+      //   "label": "Start VM",
+      //   "type": "shell",
+      //   "dependsOn": ["Compile Linux Kernel", "Create FileSystem"],
+      //   // qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -s -S -append "nokaslr root=/dev/sda rw console=ttyS0" -drive file=filesystem.img,format=raw,if=ide -nographic
+      //   "command": "qemu-system-x86_64",
+      //   "args": [
+      //     "-kernel", "arch/x86_64/boot/bzImage",
+      //     "-s", "-S", 
+      //     "-append",
+      //      //"nokaslr root=/dev/sda rw console=ttyS0",
+      //      "nokaslr root=/dev/sda rw console=ttyS0 init=/init loglevel=8",
+      //     "-drive",
+      //     "file=filesystem.img,format=raw,if=ide",
+      //     //"-nographic",  
+      //     "-serial", "tcp::4444,server,nowait", "-display", "none", "-daemonize"          
+      //   ],
+      //   "options": {
+      //       "cwd": "${workspaceFolder}"
+      //   }
+      // }
     ]
 }

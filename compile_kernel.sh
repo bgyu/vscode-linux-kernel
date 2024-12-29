@@ -12,19 +12,19 @@ if [ ! -f Makefile ] || ! grep -q "KERNELVERSION =" Makefile; then
 fi
 
 # Backup the existing .config file if it exists
-if [ -f .config ]; then
-    TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-    BACKUP_FILE=".config.bak_$TIMESTAMP"
-    echo "Backing up existing .config to $BACKUP_FILE"
-    cp .config "$BACKUP_FILE" || error_exit "Failed to backup .config"
-fi
+# if [ -f .config ]; then
+#     TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+#     BACKUP_FILE=".config.bak_$TIMESTAMP"
+#     echo "Backing up existing .config to $BACKUP_FILE"
+#     cp .config "$BACKUP_FILE" || error_exit "Failed to backup .config"
+# fi
+
+# Generate default configuration
+make olddefconfig
 
 # Update the configuration with required settings
-echo "CONFIG_DEBUG_INFO=y" >> .config || error_exit "Failed to update CONFIG_DEBUG_INFO"
-echo "CONFIG_GDB_SCRIPTS=y" >> .config || error_exit "Failed to update CONFIG_GDB_SCRIPTS"
-
-# Save kernel configuration
-make olddefconfig || error_exit "Failed to save kernel configuration"
+echo "CONFIG_DEBUG_INFO=y" >> .config
+echo "CONFIG_GDB_SCRIPTS=y" >> .config
 
 # Compile the kernel
 make -j$(nproc) || error_exit "Kernel compilation failed"
