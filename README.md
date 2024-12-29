@@ -53,5 +53,7 @@ The shortcut keys are the same with Visual Studio:
 | `Ctrl + Shift + F5`  | Restart      |
 | `Shift + F5`         | Stop         |
 
+![Debug Linux Kernel](./resources/LinuxKernelDebug.png)
+
 
 Now you can enjoy the Linux Kernel Exploring!!!
