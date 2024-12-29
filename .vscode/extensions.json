@@ -1,0 +1,18 @@
+{
+    "recommendations": [
+        "ms-vscode.cpptools",  // C/C++
+        "cschlosser.doxdocgen", // C/C++ IntelliSense
+        "zmkdt.devicetree", // Kernel-Specific Utilities: DeviceTree
+        "nerdypepper.vscode-kconfig", // Kernel-Specific Utilities: Kconfig
+        "nzh21.systemtap-syntax", // Kernel-Specific Utilities: SystemTap
+        "webfreak.debug", // Native Debug
+        // "llvm-vs-code-extensions.vscode-clangd", // clangd: Provides advanced IntelliSense, static analysis, and code navigation.
+        // "matthewferreira.cppcheck", // Performs static analysis to detect issues in C/C++ code
+        // "xaver.clang-format", // Formats C/C++ code
+        // "editorconfig.editorconfig", // Helps maintain consistent coding styles across developers by enforcing .editorconfig
+        // "eamodio.gitlens", // GitLens: Provides Git capabilities
+        // "vadimcn.vscode-lldb", // LLDB: Provides debugging capabilities
+        // "yzhang.markdown-all-in-one", // Markdown All in One: Provides Markdown editing capabilities
+        // "aaron-bond.better-comments", // Better Comments: Improves the appearance of comments
+    ]
+  }
