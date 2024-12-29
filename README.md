@@ -61,3 +61,14 @@ NOTE: If you want to see the Kernel output, you need to run `tail -f serial.log`
 ![Kernel Output](./resources/KernelOutput.png)
 
 Now you can enjoy the Linux Kernel Exploring!!!
+
+# Play the New Kernel Without Debugging
+If you just want to play the new Kernel without debugging, you can start it like this:
+```
+# Use default init from busybox, no graphic, run in terminal
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -append "root=/dev/sda rw console=ttyS0" -drive file=filesystem.img,format=raw,if=ide -nographic
+
+# Use the init created by this repo (Will panic if you exit)
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -append "root=/dev/sda rw console=ttyS0 init=/init" -drive file=filesystem.img,format=raw,if=ide -nographic
+```
+![PLay New Kernel](./resources/PlayNewKernel.png)
