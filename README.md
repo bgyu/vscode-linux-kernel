@@ -38,6 +38,10 @@ cd ~/source/linux
 # Open VS Code In Current Folder
 code .
 ```
+Usually VS Code will prompt you to install some recommended extensions. Please follow the instruction to install them for better code experience. If not, you can install them manually:
+* [C/C++ Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools-extension-pack)
+* [Makefile Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.makefile-tools)
+* [kconfig](https://marketplace.visualstudio.com/items?itemName=luveti.kconfig)
 
 #### 4. Start Compile And Debugging Linux Kernel
 * Open `init/main.c` and set a breakpoint in `start_kernel` function
@@ -72,3 +76,7 @@ qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -append "root=/dev/sda rw co
 qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -append "root=/dev/sda rw console=ttyS0 init=/init" -drive file=filesystem.img,format=raw,if=ide -nographic
 ```
 ![PLay New Kernel](./resources/PlayNewKernel.png)
+
+## References
+* https://docs.kernel.org/dev-tools/gdb-kernel-debugging.html
+* https://github.com/bgyu/KB/blob/main/DebugLinuxKernel.md
