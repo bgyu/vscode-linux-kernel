@@ -42,6 +42,8 @@ code .
 ### 4. Start Compile And Debugging Linux Kernel
 * Open `init/main.c` and set a breakpoint in `start_kernel` function
 * Press `F5` to start Debugging. Linux Kernel is not built and rootfs is not created yet, VS Code will call the corresponding Tasks to start building the Kernel and creating the rootfs image. NOTE: When creating rootfs image `filesystem.img`, it will needs `root` previlige. It will prompt you to enter the password and continue. If you didn't see the prompt, you can manually run `create_fs.sh` to create the rootfs image. (The rootfs image will only create once).
+
+It will take some time to build the Kernel (depends on how fast is your system). Once the Kernel is built and the rootfs image is created, the debugging will start automatically and the breakpoint will hit in `start_kernel` function.
   
 The shortcut keys are the same with Visual Studio:
 | Key Combination      | Action       |
@@ -55,5 +57,7 @@ The shortcut keys are the same with Visual Studio:
 
 ![Debug Linux Kernel](./resources/LinuxKernelDebug.png)
 
+NOTE: If you want to see the Kernel output, you need to run `tail -f serial.log` in a terminal:
+![Kernel Output](./resources/KernelOutput.png)
 
 Now you can enjoy the Linux Kernel Exploring!!!
